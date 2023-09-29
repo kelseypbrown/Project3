@@ -2,14 +2,36 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
-    <title>Data Visualization</title>
+    <title>All About Music</title>
     
     <!-- Link your CSS file here -->
     <link href="../static/css/style.css" rel="stylesheet" type="text/css">
     
+    <!-- Include the Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 </head>
 <body>
-   HEllo
+    <h1>Welcome</h1>
+    <!-- Display the .gif image -->
+    <img src="../static/images/welcome.gif" alt="Animated GIF">
+
+    <div class="chart-container">
+        <!-- Create a canvas element to render the chart -->
+        <canvas id="myChart" width="2000" height="2500"></canvas>
+    </div>
+    <!-- JavaScript code to render the chart -->
+    <script>
+        // Extract the base64 image data passed from Flask
+        var imgBase64 = "{{ img_base64 }}";
+
+        // Parse the base64 image data and render it as a chart
+        var ctx = document.getElementById('myChart').getContext('2d');
+        var img = new Image();
+        img.src = 'data:image/png;base64,' + imgBase64;
+        img.onload = function () {
+            ctx.drawImage(img, 0, 0);
+        };
+    </script>
 </body>
 </html>

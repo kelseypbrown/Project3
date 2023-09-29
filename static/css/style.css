@@ -1,4 +1,19 @@
 body {
     font-style: italic;
     font-family: "Engravers MT", Times, serif;
+    color : rgb(78, 247, 0);
+    background-color: #a7a5a5;
+}
+
+img {
+    display: block; 
+    margin: 0 auto; 
+    
+}
+
+
+
+canvas {
+    display: block; 
+    margin: 100px auto; 
 }
