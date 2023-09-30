@@ -1,11 +1,17 @@
 body {
     font-style: italic;
     font-family: "Engravers MT", Times, serif;
-    color : rgb(78, 247, 0);
-    background-color: #a7a5a5;
+    color : rgb(34, 105, 2);
+    background-image: url('../images/background.jpg'); 
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-attachment: fixed; 
 }
 
-img {
+
+
+.left-img {
+    float : left;
     display: block; 
     margin: 0 auto; 
     
@@ -16,4 +22,24 @@ img {
 canvas {
     display: block; 
     margin: 100px auto; 
+    font-style: italic;
+    color:black;
 }
+
+nav{
+    font-style: italic;
+    font-size:large;
+    color: blue;
+    float: right;
+
+
+}
+
+button {
+    font-size: larger;
+    font-style: italic;
+    color:green;
+
+
+}
+

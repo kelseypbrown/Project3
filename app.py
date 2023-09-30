@@ -12,7 +12,7 @@ Base =automap_base()
 Base.prepare(engine,reflect=True)
 Table1=Base.classes.table1
 
-
+#---------------------------------------------------------------------------------------
 # Create the Flask app
 app = Flask(__name__)
 
@@ -30,27 +30,24 @@ def home():
     track_names = [row[0] for row in top_tracks]
     streams = [row[1] for row in top_tracks]
 
-   # Create a horizontal bar chart with track names displayed vertically
-    plt.figure(figsize=(10, 6))
-    plt.barh(track_names, streams)  # Use plt.barh() for horizontal bars
-    plt.xlabel("Streams")
-    plt.ylabel("Track Name")  # Adjust the label to indicate track names
-    plt.title("Top 10 Songs on Spotify")
-
-    # Rotate the track names vertically
-    #plt.gca().invert_yaxis()
-
-    # Convert the chart to a base64-encoded image
-    img = BytesIO()
-    plt.savefig(img, format='png')
-    img.seek(0)
-    img_base64 = base64.b64encode(img.getvalue()).decode()
-    plt.close()
+    # Convert the data to a format suitable for Chart.js
+    data = {
+    "labels": track_names,
+    "datasets": [
+        {
+            "label": 'Streams',
+            "data": streams,
+            "backgroundColor": 'rgba(0, 128, 0, 0.5)', 
+            "borderColor": 'rgba(0, 0, 0, 1)', 
+            "borderWidth": 2,
+        },
+    ],
+};
 
     session.close()
 
-    # Render the HTML template and pass the base64 image data
-    return render_template("index.html", img_base64=img_base64)
+    # Render the HTML template and pass the data for Chart.js
+    return render_template("index.html", chart_data=data)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)

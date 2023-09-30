@@ -2,6 +2,7 @@
 <html lang="en-us">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>All About Music</title>
     
     <!-- Link your CSS file here -->
@@ -10,28 +11,92 @@
     <!-- Include the Chart.js library -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
 </head>
 <body>
-    <h1>Welcome</h1>
-    <!-- Display the .gif image -->
-    <img src="../static/images/welcome.gif" alt="Animated GIF">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Top Streams</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <!-- Use ml-auto class to push the links to the right -->
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                </ul>
+            </div>
+        </div>
+    </nav>
 
-    <div class="chart-container">
-        <!-- Create a canvas element to render the chart -->
-        <canvas id="myChart" width="2000" height="2500"></canvas>
+    <h1 style="font-size: 100px; color: green; text-align: center;">Welcome</h1>
+    
+    <div class="container">
+        <div class="row">
+            <!-- Column for the "Click me" button -->
+            <div class="col-md-6">
+                <button onclick="typeWriter()">Click me!</button>
+                <p id="demo"></p>
+                <script>
+                    var i = 0;
+                    var txt = "Spotify is a digital music, podcast, and video service that provides access to millions of songs and other content from creators worldwide. Basic functions, such as playing music, are entirely free. However, you can also choose to upgrade to Spotify Premium. Whether you have Premium or not, you can:Receive recommendations based on your preferences. Create collections of music and podcasts, and more. Below, you will find the most-streamed songs of 2023. We hope you enjoy it!"
+                    
+                    var speed = 100;
+                    
+                    function typeWriter() {
+                      if (i < txt.length) {
+                        document.getElementById("demo").innerHTML += txt.charAt(i);
+                        i++;
+                        setTimeout(typeWriter, speed);
+                      }
+                    }
+                    </script>
+            </div>
+            
+            <!-- Column for the .gif image -->
+            <div class="col-md-6">
+                <img src="../static/images/welcome.gif" alt="Animated GIF">
+            </div>
+        </div>
     </div>
-    <!-- JavaScript code to render the chart -->
-    <script>
-        // Extract the base64 image data passed from Flask
-        var imgBase64 = "{{ img_base64 }}";
+    
+    
 
-        // Parse the base64 image data and render it as a chart
-        var ctx = document.getElementById('myChart').getContext('2d');
-        var img = new Image();
-        img.src = 'data:image/png;base64,' + imgBase64;
-        img.onload = function () {
-            ctx.drawImage(img, 0, 0);
+    <!-- Create a canvas element to render the chart -->
+    <div class="chart-container">
+        <canvas id="myChart1" width="200" height="100"></canvas>
+    </div>
+    
+    <!-- JavaScript code to render the chart using Chart.js -->
+    <script>
+        var ctx1 = document.getElementById('myChart1').getContext('2d');
+        var chartData = {{ chart_data|tojson|safe }};
+        var config = {
+            type: 'bar',
+            data: chartData,
+            options: {
+                indexAxis: 'y',
+                elements: {
+                    bar: {
+                        borderWidth: 2,
+                    },
+                },
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'right',
+                    },
+                    
+                },
+            },
         };
+        var myChart1 = new Chart(ctx1, config);
     </script>
+    
+    
 </body>
 </html>
+
