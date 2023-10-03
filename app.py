@@ -49,5 +49,27 @@ def home():
     # Render the HTML template and pass the data for Chart.js
     return render_template("index.html", chart_data=data)
 
+@app.route('/api/music')
+def music():
+    session = Session(engine)
+    # Query the top 10 tracks by streams
+    top_tracks = session.query(Table1.track_name, Table1.streams) \
+                        .order_by(Table1.streams.desc()) \
+                        .all()
+    results = [list(t) for t in top_tracks]
+    table_results = {
+        "table": results
+    }
+    session.close()
+    return jsonify(table_results)
+
+@app.route("/data")
+def data():
+
+    return render_template("/data.html")
+
+
+
+
 if __name__ == '__main__':
     app.run(debug=True)
