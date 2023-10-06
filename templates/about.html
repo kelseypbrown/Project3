@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Music</title>
+    
+    <!-- Link your CSS file here -->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Include the Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/">Top Streams</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('data') }}">Data Stats</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('links') }}">Listen</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">About</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 style="font-size: 100px; color: rgb(128, 0, 32); text-align: center;">About our Project</h1>
+    <p>Original dataset used: "Most Streamed Spotify Songs 2023" by Nidula Elgiriyewithana sourced from Kaggle</p>
+    <p>When analyzing the data from Spotifys most streamed songs for 2023, we wanted to ask ourselves a few questions:</p>
+    <h2>- Which data should be analyzed (what is being kept vs cleaned)?</h2>
+    <p>Because we specifically wanted to look at Spotify, data regarding Apple Music, Shazam, and Deezer were dropped when cleaning our set. Genres were added to the cleaned dataset using Spotipy for Spotify API, and narrowing down genre categories further to lessen the amount of unique genres. Only the first genre for each artist and song was kept.</p>
+    <h2>- Why assign genres to this streaming information using Spotipy for Spotify API?</h2>
+    <p>We found it more accurate to work with a Spotify API source than to use another dataset to determine genres. Using the genre information assigned to the top songs data, we can look at the most popular genres, top songs in each genre, top artists per genre, etc.</p>
+    <h2>- How can this data be used in real life?</h2>
+    <p>Spotify uses this data in its yearly promotion “Spotify Wrapped”, in which users and producers can see their own and others listening trends. At the end of the year, users are encouraged to view their data and share it via social media like Instagram and Facebook. In addition, producers and management teams can use this data to make decisions on which artists to promote or tour, Spotify can use it to build playlists for the app or viewing usage and streaming trends, and scouts can use it to discover new talent according to said trends, etc. Competitor apps can use this information as well to determine new promotions, user sign-up incentives, and user streaming preferences. With data like keys and BPM, producers can locate trends in production to see what might be working and what they may need to change when creating with musicians.</p>
+</body>
+</html>

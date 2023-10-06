@@ -37,12 +37,13 @@ def home():
         {
             "label": 'Streams',
             "data": streams,
-            "backgroundColor": 'rgba(0, 128, 0, 0.5)', 
+            "backgroundColor": 'rgb(255, 255, 0)', 
             "borderColor": 'rgba(0, 0, 0, 1)', 
             "borderWidth": 2,
         },
     ],
 };
+    pass    
 
     session.close()
 
@@ -53,7 +54,7 @@ def home():
 def music():
     session = Session(engine)
     # Query the top 10 tracks by streams
-    top_tracks = session.query(Table1.track_name, Table1.streams) \
+    top_tracks = session.query(Table1.track_name,Table1.streams, Table1.danceability, Table1.energy, Table1.acousticness) \
                         .order_by(Table1.streams.desc()) \
                         .all()
     results = [list(t) for t in top_tracks]
@@ -63,13 +64,25 @@ def music():
     session.close()
     return jsonify(table_results)
 
+
+
 @app.route("/data")
 def data():
 
     return render_template("/data.html")
+    pass
 
+@app.route("/links")
+def links():
 
+    return render_template("/links.html")
+    pass
 
+@app.route("/about")
+def about():
+
+    return render_template("/about.html")
+    pass
 
 if __name__ == '__main__':
     app.run(debug=True)

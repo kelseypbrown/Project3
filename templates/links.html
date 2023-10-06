@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Music</title>
+    
+    <!-- Link your CSS file here -->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    
+    <!-- Include the Chart.js library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Top Streams</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('data') }}">Data Stats</a></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('links') }}">Listen</a></a>
+          </li>
+
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">About</a></a>
+          </li>
+        </ul>
+            </div>
+        </div>
+    </nav>
+    <h1 style="font-size: 100px; color: rgb(128, 0, 32); text-align: center;">Listen</h1>
+
+    <h1>Our Recommendations &#129321</h1>
+
+    <div class="container">
+      <div class="row">
+          <!-- Column for "Best Overall" -->
+          <div class="col-md-4">
+              <h2>Best Overall</h2>
+              <a href="https://www.youtube.com/watch?v=ApXoWvfEYVU">
+                  <img src="/static/images/sunflower.jpg" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+          
+          <!-- Column for "Fans Fav.." -->
+          <div class="col-md-4">
+              <h2>Fans Fav..</h2>
+              <a href="https://www.youtube.com/watch?v=kTJczUoc26U">
+                  <img src="/static/images/stay.jpg" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+          
+          <!-- Column for "Classic" -->
+          <div class="col-md-4">
+              <h2>Classic</h2>
+              <a href="https://www.youtube.com/watch?v=_fh64GbFSw4">
+                  <img src="/static/images/lucid.jpg" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+
+          <!-- Column for "Fill Your Heart" -->
+          <div class="col-md-4">
+              <h2>Fill Your Heart</h2>
+              <a href="https://www.youtube.com/watch?v=wXhTHyIgQ_U">
+                  <img src="/static/images/heart.jpeg" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+
+          <!-- Column for "Best for Dancing" -->
+          <div class="col-md-4">
+              <h2>Best for Dancing</h2>
+              <a href="https://www.youtube.com/watch?v=WHuBW3qKm9g">
+                  <img src="/static/images/dancing.jpeg" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+
+          <!-- Column for "Try something new" -->
+          <div class="col-md-4">
+              <h2>Try something new</h2>
+              <a href="https://www.youtube.com/watch?v=ca48oMV59LU">
+                  <img src="/static/images/random.gif" alt="Description of the image" width="300" height="200">
+              </a>
+          </div>
+      </div>
+  </div>
+
+</body>
+</html>
