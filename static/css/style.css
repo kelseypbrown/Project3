@@ -145,8 +145,8 @@ h2 {
 }
 
 p {
-  font-style: Arial;
-  font-size: medium;
+  font-family: Arial, sans-serif; /* Use font-family instead of font-style for specifying the font */
+  font-size: 40px; /* Added 'px' unit for font size */
   color: rgb(8, 8, 8);
-  text-align: last;
+  text-align: left; /* Changed 'last' to 'left' for text alignment */
 }

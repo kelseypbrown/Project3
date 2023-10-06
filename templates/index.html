@@ -90,7 +90,7 @@
     <!-- JavaScript code to render the chart using Chart.js -->
     <script>
         var ctx1 = document.getElementById('myChart1').getContext('2d');
-        var chartData = {{chart_data|tojson|safe }};
+        var chartData = {{ chart_data | tojson | safe }};
         var config = {
             type: 'bar',
             data: chartData,

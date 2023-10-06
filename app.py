@@ -54,7 +54,7 @@ def home():
 def music():
     session = Session(engine)
     # Query the top 10 tracks by streams
-    top_tracks = session.query(Table1.track_name,Table1.streams, Table1.danceability, Table1.energy, Table1.acousticness) \
+    top_tracks = session.query(Table1.track_name,Table1.streams, Table1.danceability, Table1.energy, Table1.acousticness, Table1.in_spotify_playlists, Table1.in_apple_playlists, Table1.artist_name) \
                         .order_by(Table1.streams.desc()) \
                         .all()
     results = [list(t) for t in top_tracks]
@@ -63,7 +63,6 @@ def music():
     }
     session.close()
     return jsonify(table_results)
-
 
 
 @app.route("/data")
