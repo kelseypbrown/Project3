@@ -32,9 +32,11 @@
             <a class="nav-link active" aria-current="page" href="{{ url_for('data') }}">Data Stats</a></a>
           </li>
           <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{ url_for('genres') }}">Genres</a></a>
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('links') }}">Listen</a></a>
           </li>
-  
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">About</a></a>
           </li>
@@ -84,7 +86,7 @@
 
     <!-- Create a canvas element to render the chart -->
     <div class="chart-container">
-        <canvas id="myChart1" width="200" height="100"></canvas>
+        <canvas id="myChart1" width="1200" height="500"></canvas>
     </div>
     
     <!-- JavaScript code to render the chart using Chart.js -->

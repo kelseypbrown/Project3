@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All About Music</title>
+    <!-- Link your CSS file here -->
+    <link href="../static/css/style.css" rel="stylesheet" type="text/css">
+    <script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+    <!-- Include the Chart.js library -->
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-base.min.js"></script>
+    <script src="https://cdn.anychart.com/releases/v8/js/anychart-tag-cloud.min.js"></script>
+    <!-- CSS only -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <!-- JavaScript Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj" crossorigin="anonymous"></script>
+    <style>
+    html, body, #container {
+    width: 100%;
+    height: 90%;
+    margin: 0;
+    padding: 0;
+    }
+    </style> 
+ </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="/">Top Streams</a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              
+                
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('data') }}">Data Stats</a></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('genres') }}">Genres</a></a>
+              </li>
+
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('links') }}">Listen</a></a>
+              </li>
+      
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="{{ url_for('about') }}">About</a></a>
+              </li>
+              
+            </ul>
+                </div>
+            </div>
+        </nav>
+    
+        <h1 style="font-size: 90px; color: rgb(128, 0, 32); text-align: center;">Top Music Genres</h1>
+   
+    <div id="container"></div>
+    <script>
+        anychart.onDocumentReady(function() {
+            var data = [
+                {"x": "Pop", "value": 302},
+                {"x": "Hip Hop", "value": 104},
+                {"x": "Rap", "value": 46},
+                {"x": "Reggaeton", "value": 46},
+                {"x": "R&B", "value": 39},
+                {"x": "Corrido", "value": 23},
+                {"x": "Rock", "value": 16},
+                {"x": "Contemporary Country", "value": 13},
+                {"x": "Alt Z", "value": 13},
+                {"x": "Adult Standards", "value": 9},
+                {"x": "Indie", "value": 9},
+                {"x": "Filmi", "value": 6},
+                {"x": "Corridos Tumbados", "value": 5},
+                {"x": "Brostep", "value": 5},
+                {"x": "Anime", "value": 4},
+                {"x": "Afrobeats", "value": 4},
+                {"x": "British Soul", "value": 3},
+                {"x": "Escape Room", "value": 3},
+                {"x": "Afrofuturism", "value": 3},
+                {"x": "Funk Carioca", "value": 3},
+                {"x": "Agronejo", "value": 3},
+                {"x": "Big Room", "value": 3},
+                {"x": "Perreo", "value": 2},
+                {"x": "House", "value": 2},
+                {"x": "Permanent Wave", "value": 2},
+                {"x": "Melodic Drill", "value": 2},
+                {"x": "Beatlesque", "value": 2},
+                {"x": "Arrocha", "value": 2},
+                {"x": "Movie Tunes", "value": 2},
+                {"x": "German Drill", "value": 2},
+                {"x": "Sad Sierreno", "value": 2},
+                {"x": "Gen Z Singer-Songwriter", "value": 2},
+                {"x": "Florida Drill", "value": 2},
+                {"x": "Urbano Chileno", "value": 1},
+                {"x": "G funk", "value": 1},
+                {"x": "Cantautora Mexicana", "value": 1},
+                {"x": "Dreamo", "value": 1},
+                {"x": "Breaks", "value": 1},
+                {"x": "Hollywood", "value": 1},
+                {"x": "Italo Dance", "value": 1},
+                {"x": "Mambo Chileno", "value": 1},
+                {"x": "Aussietronica", "value": 1},
+                {"x": "Brooklyn Drill", "value": 1},
+                {"x": "Funk Mtg", "value": 1},
+                {"x": "Indonesian Jazz", "value": 1},
+                {"x": "Latin Talent Show", "value": 1},
+                {"x": "Neo Mellow", "value": 1},
+                {"x": "Latintronica", "value": 1},
+                {"x": "Mariachi", "value": 1},
+                {"x": "Urbano Espanol", "value": 1},
+                {"x": "UK Reggae", "value": 1},
+                {"x": "Funk Consciente", "value": 1},
+                {"x": "Neo Soul", "value": 1},
+                {"x": "Classic Oklahoma Country", "value": 1},
+                {"x": "Electra", "value": 1},
+                {"x": "Chicago Drill", "value": 1},
+                {"x": "Sertanejo", "value": 1},
+                {"x": "Disco", "value": 1},
+                {"x": "Sped Up", "value": 1},
+                {"x": "Nightcore", "value": 1},
+                {"x": "Musica Chihuahuense", "value": 1},
+                {"x": "Phonk Brasileiro", "value": 1},
+                {"x": "Drift Phonk", "value": 1},
+                {"x": "Blues", "value": 1},
+                {"x": "deep euro house", "value": 1},
+                {"x": "electro latino", "value": 1},
+                {"x": "dutch house", "value": 1},
+                {"x": "weirdcore", "value": 1},
+                {"x": "belgian edm", "value": 1},
+                {"x": "deep groove house", "value": 1},
+                {"x": "speed up turkce", "value": 1},
+                {"x": "musical advocacy", "value": 1},
+                {"x": "funk paulista", "value": 1}
+            ];
+
+            // create a tag (word) cloud chart
+            var chart = anychart.tagCloud(data);
+
+            // set a chart title
+            chart.title('Top Genres')
+
+            // set an array of angles at which the words will be laid out
+            chart.angles([0, -45, 90])
+            
+            // display the word cloud chart
+            chart.container("container");
+            chart.draw();
+            
+        });
+    </script>
+  </body>
+</html>

@@ -71,6 +71,12 @@ def data():
     return render_template("/data.html")
     pass
 
+@app.route("/genres")
+def genres():
+
+    return render_template("/genres.html")
+    pass
+
 @app.route("/links")
 def links():
 
