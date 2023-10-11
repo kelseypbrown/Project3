@@ -148,8 +148,17 @@
             // display the word cloud chart
             chart.container("container");
             chart.draw();
-            
-        });
+
+              // add event listener
+            chart.listen("pointClick", function(e){
+              var url = "https://www.youtube.com/results?search_query=Billboard+hot+" + e.point.get("x");
+              window.open(url, "_blank")});
+      
+          });
+
+          
+              
+
     </script>
   </body>
 </html>
